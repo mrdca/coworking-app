@@ -17,5 +17,3 @@ COPY ./analytics .
 
 # Set the command to run the application
 CMD ["python", "app.py"]
-
-# A simple comment
