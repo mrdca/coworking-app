@@ -4,7 +4,6 @@ import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
-
 db_username = os.environ["DB_USERNAME"]
 db_password = os.environ["DB_PASSWORD"]
 db_host = os.environ.get("DB_HOST", "127.0.0.1")
@@ -16,7 +15,5 @@ app.config["SQLALCHEMY_DATABASE_URI"] = f"postgresql://{db_username}:{db_passwor
 
 
 db = SQLAlchemy(app)
-
-# A simple comment
 
 app.logger.setLevel(logging.DEBUG)
