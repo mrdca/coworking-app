@@ -7,7 +7,7 @@ from flask_sqlalchemy import SQLAlchemy
 db_username = "myuser"
 db_password = "mypassword"
 db_host = "postgresql-service"
-db_port = "5432"
+db_port = "5433"
 db_name = "mydatabase"
 
 app = Flask(__name__)
