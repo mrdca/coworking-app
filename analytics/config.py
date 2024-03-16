@@ -6,7 +6,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 db_username = "postgres"
 db_password = "mypassword"
-db_host = "postgresql-service"
+db_host = "127.0.0.1"
 db_port = "5433"
 db_name = "postgres"
 
