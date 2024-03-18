@@ -10,18 +10,22 @@ RUN pip install --no-cache-dir -r requirements.txt \
     && rm -rf requirements.txt
 
 # Stage 2: Build Python dependencies for arm64 architecture
-FROM --platform=linux/arm64 python:3.10-slim-buster AS builder-arm64
+FROM python:3.10-slim-buster AS builder-arm64
+# Set architecture to arm64
+RUN dpkg --add-architecture arm64
 
 WORKDIR /src
 
 COPY ./analytics .
 
 # Install Python dependencies for arm64 architecture
-RUN pip install --no-cache-dir -r requirements.txt \
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libc6:arm64 \
+    && pip install --no-cache-dir -r requirements.txt \
     && rm -rf requirements.txt
 
 # Final Stage: Create a multi-architecture image
-FROM --platform=linux/amd64,linux/arm64 python:3.10-slim-buster
+FROM python:3.10-slim-buster
 
 WORKDIR /src
 
