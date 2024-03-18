@@ -1,19 +1,16 @@
 # Use the official Python image as base
 FROM arm64v8/python:3.10-slim-buster
 
-# Create a non-root user to run the application
-RUN adduser --disabled-password --gecos '' myuser
-USER myuser
+USER root
 
-# Set the working directory
 WORKDIR /src
 
-# Copy only the requirements file and install dependencies
 COPY ./analytics/requirements.txt requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the rest of the application code
+# Dependencies are installed during build time in the container itself so we don't have OS mismatch
+RUN pip install -r requirements.txt
+
 COPY ./analytics .
+#checking codbuild automate
 
-# Set the command to run the application
-CMD ["python", "app.py"]
+CMD python app.py
