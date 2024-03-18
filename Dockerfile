@@ -7,7 +7,6 @@ COPY ./analytics .
 
 # Install Python dependencies for arm64 architecture
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    libc6:arm64 \
     && pip install --no-cache-dir -r requirements.txt \
     && rm -rf requirements.txt
 
