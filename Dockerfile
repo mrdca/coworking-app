@@ -1,8 +1,5 @@
 # Use the official Python image as base
-
 FROM --platform=linux/arm64 python:3.10-slim-buster
-
-USER root
 
 WORKDIR /src
 
