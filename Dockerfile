@@ -1,5 +1,5 @@
 # Stage 1: Build Python dependencies for arm64 architecture
-FROM python:3.10-slim-buster AS builder-arm64
+FROM arm64v8/python:3.10-slim-buster AS builder-arm64
 
 WORKDIR /src
 
