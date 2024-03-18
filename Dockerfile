@@ -1,5 +1,5 @@
 # Use the official Python image as base
-FROM arm64v8/python:latest
+FROM alexberkovich/alpine-python39
 
 WORKDIR /src
 
