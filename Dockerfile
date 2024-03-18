@@ -1,5 +1,6 @@
 # Use the official Python image as base
-FROM arm64v8/python:3.10-slim-buster
+
+FROM --platform=linux/arm64 python:3.10-slim-buster
 
 USER root
 
