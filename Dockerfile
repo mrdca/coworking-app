@@ -10,14 +10,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && pip install --no-cache-dir -r requirements.txt \
     && rm -rf requirements.txt
 
-# Final Stage: Create the arm64 architecture image
-FROM python:3.10-slim-buster
-
-WORKDIR /src
-
-COPY --from=builder-arm64 /src /src
-
-# Switch to a non-root user
 USER nobody
 
 CMD python app.py
